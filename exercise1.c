@@ -7,19 +7,23 @@ Description: Takes in a file of sales figures and generates various reports
 */
 #include <stdio.h>
 
-void monthlyReport(input){
+void monthlyReport(float input[]){
     char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     printf("Monthly Sales Report for 2024");
     printf("Month \tSales\n");
-    for (int i=0; i>sizeof(input); i++){
+    for (int i=0; i<12; i++){
         printf("%s \t%f\n", months[i], input[i]);
     }
 }
 
-void main(){
+int main(){
     FILE *fptr;
-    fptr = open("ex1input.txt", "r");
+    fptr = fopen("ex1input.txt", "r");
     float figures[12];
-    fgets(figures, 12, fptr);
-    monthlyReport(figures);
+    int i = 0;
+    while(i < 12 && fscanf(fptr, "%f", &figures[i])==1){
+        i++;
+    }
+    fclose(fptr);
+    monthlyReport(figures)
 }
