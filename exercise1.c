@@ -8,7 +8,7 @@ Description: Takes in a file of sales figures and generates various reports
 #include <stdio.h>
 
 void monthlyReport(float input[]){
-    char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    const char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     printf("Monthly Sales Report for 2024\n");
     printf("Month \tSales\n");
     for (int i=0; i<12; i++){
