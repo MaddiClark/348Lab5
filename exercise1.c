@@ -39,7 +39,7 @@ void salesSummary(float input[], const char *months[]){
 }
 
 void movingAverage(float input[], const char *months[]){
-    printf("/nSix Month Moving Average Report:\n\n");
+    printf("\nSix Month Moving Average Report:\n\n");
     for (int i=0; i<=12-6; i++){
         float sum = 0;
         for (int j=i; j<i+6; j++){
