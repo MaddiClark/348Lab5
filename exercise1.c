@@ -7,7 +7,7 @@ Description: Takes in a file of sales figures and generates various reports
 */
 #include <stdio.h>
 
-void monthlyReport(float input[], char months[]){
+void monthlyReport(float input[], const char *months[]){
     printf("Monthly Sales Report for 2024\n");
     printf("Month \tSales\n");
     for (int i=0; i<12; i++){
@@ -15,7 +15,7 @@ void monthlyReport(float input[], char months[]){
     }
 }
 
-void salesSummary(float input[], char months[]){
+void salesSummary(float input[], const char *months[]){
     printf("Sales Summary Report: \n");
     float min = input[0];
     float max = input[0];
@@ -49,4 +49,5 @@ int main(){
     }
     fclose(fptr);
     monthlyReport(figures, months);
+    salesSummary(figures, months);
 }
