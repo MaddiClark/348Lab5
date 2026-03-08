@@ -39,7 +39,15 @@ void salesSummary(float input[], const char *months[]){
 }
 
 void movingAverage(float input[], const char *months[]){
-    printf("/nSix Month Moving Average Report:\n\n")
+    printf("/nSix Month Moving Average Report:\n\n");
+    for (int i=0; i<=12-6; i++){
+        float sum = 0;
+        for (int j=i; j<i+6; j++){
+            sum += input[j];
+        }
+        float avg = sum/6;
+        printf("%s - %s\t%.2f\n", months[i], months[i+5], avg);
+    }
 }
 
 int main(){
@@ -54,4 +62,5 @@ int main(){
     fclose(fptr);
     monthlyReport(figures, months);
     salesSummary(figures, months);
+    movingAverage(figures, months);
 }
