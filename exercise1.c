@@ -50,6 +50,18 @@ void movingAverage(float input[], const char *months[]){
     }
 }
 
+void merge(float input[], const char *months[], int left, int right, int mid){
+
+}
+
+void mergeSort(float input[], const char *months[], int left, int right, int mid){
+
+}
+
+void highestToLowest(float input[], const char *months[]){
+    
+}
+
 int main(){
     const char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     FILE *fptr;
