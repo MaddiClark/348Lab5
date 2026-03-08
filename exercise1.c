@@ -8,7 +8,7 @@ Description: Takes in a file of sales figures and generates various reports
 #include <stdio.h>
 
 void monthlyReport(float input[], const char *months[]){
-    printf("Monthly Sales Report for 2024\n");
+    printf("\nMonthly Sales Report for 2024\n\n");
     printf("Month \tSales\n");
     for (int i=0; i<12; i++){
         printf("%s \t%.2f\n", months[i], input[i]);
@@ -16,7 +16,7 @@ void monthlyReport(float input[], const char *months[]){
 }
 
 void salesSummary(float input[], const char *months[]){
-    printf("Sales Summary Report: \n");
+    printf("\nSales Summary Report: \n\n");
     float min = input[0];
     float max = input[0];
     float sum = 0;
@@ -36,6 +36,10 @@ void salesSummary(float input[], const char *months[]){
     printf("Minimum sales: %.2f\n", min);
     printf("Maximum sales: %.2f\n", max);
     printf("Average sales: %.2f\n", avg);
+}
+
+void movingAverage(float input[], const char *months[]){
+    printf("/nSix Month Moving Average Report:\n\n")
 }
 
 int main(){
