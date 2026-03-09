@@ -8,10 +8,18 @@ Description: Reads input for two matrices and provides various functions to mani
 #include "exercise2.h"
 #define SIZE 5
 
-int addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE]){
+void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE]){
     for (int i = 0; i<SIZE; i++){
         for (int j = 0; j<SIZE; j++){
             m3[i][j] = m1[i][j]+m2[i][j];
+        }
+    }
+}
+
+void printMatrix(int m3[SIZE][SIZE]){
+    for (int i=0; i<SIZE; i++){
+        for (int j=0; j<SIZE; j++){
+            printf("%d", m3[i][j]);
         }
     }
 }
