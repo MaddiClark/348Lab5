@@ -64,6 +64,8 @@ int main(){
     int m3[SIZE][SIZE];
     addMatrices(m1, m2, m3, SIZE, SIZE, SIZE, SIZE);
     printMatrix(m3);
+    printf("\n");
     multiplyMatrices(m1, m2, m3, SIZE, SIZE);
     printMatrix(m3);
+    printf("\n");
 }
