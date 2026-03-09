@@ -26,7 +26,7 @@ int addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE], int 
 void printMatrix(int m[SIZE][SIZE]){
     for (int i=0; i<SIZE; i++){
         for (int j=0; j<SIZE; j++){
-            printf("%d", m[i][j]);
+            printf("%d ", m[i][j]);
         }
         printf("\n");
     }
