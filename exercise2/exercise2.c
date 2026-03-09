@@ -46,6 +46,21 @@ int multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE],
     }
 }
 
+int transposeMatrix(int m[SIZE][SIZE]){
+    int tempMatrix[SIZE][SIZE];
+    for(int i=0; i<SIZE; i++){
+        for(int j=0; j<SIZE; j++){
+            tempMatrix[i][j]=m[j][i];
+        }
+    }
+    for (int i=0; i<SIZE; i++){
+        for (int j=0; j<SIZE; j++){
+            m[i][j]=tempMatrix[i][j];
+        }
+    }
+    printMatrix(m);
+}
+
 int main(){
     int m1[SIZE][SIZE] = {
         {1, 2, 3, 4, 5},
@@ -68,4 +83,5 @@ int main(){
     multiplyMatrices(m1, m2, m3, SIZE, SIZE);
     printMatrix(m3);
     printf("\n");
+
 }
