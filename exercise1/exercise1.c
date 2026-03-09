@@ -50,7 +50,7 @@ void movingAverage(float input[], const char *months[]){
     }
 }
 
-void merge(float input[], const char *months[], int left, int right, int mid){
+void merge(float input[], const char *months[], int left, int mid, int right){
     float tempFigures[12];
     const char *tempMonths[12];
 
