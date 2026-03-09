@@ -83,5 +83,7 @@ int main(){
     multiplyMatrices(m1, m2, m3, SIZE, SIZE);
     printMatrix(m3);
     printf("\n");
-
+    transposeMatrix(m1);
+    transposeMatrix(m2);
+    transposeMatrix(m3);
 }
