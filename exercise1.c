@@ -51,27 +51,74 @@ void movingAverage(float input[], const char *months[]){
 }
 
 void merge(float input[], const char *months[], int left, int right, int mid){
+    float tempFigures[12];
+    const char *tempMonths[12];
 
+    int i = left;
+    int j = mid+1;
+    int k = left;
+    while(i<=mid && j<=right){
+        if (input[i]  >= input[j]){
+            tempFigures[k]=input[i];
+            tempMonths[k]=months[i];
+            i++;
+        }
+        else{
+            tempFigures[k]=input[j];
+            tempMonths[k]=months[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i<=mid){
+        tempFigures[k]=input[i];
+        tempMonths[k]=months[i];
+        i++;
+        k++;
+    }
+    while (j<=right){
+        tempFigures[k]=input[j];
+        tempMonths[k]=months[j];
+        j++;
+        k++;
+    }
+
+    for (int l = left; l <= right; l++){
+        input[l] = tempFigures[l];
+        months[l] = tempMonths[l];    
+    }
 }
 
 void mergeSort(float input[], const char *months[], int left, int right){
-
+    //recursively sorts left and right in order greatest to least
+    if (left<right){
+        int mid = (left+right)/2;
+        mergeSort(input, months, left, mid);
+        mergeSort(input, months, mid+1, right);
+        merge(input, months, left, mid, right);
+    }
 }
 
 void highestToLowest(float input[], const char *months[]){
-    printf("\nSales Report (Highest to Lowest):\n");
+    printf("\nSales Report (Highest to Lowest):\n"); //prints header
     printf("Month \tSales\n");
+
+    //copies arrays for use later
     float inputCopy[12];
     const char *monthsCopy[12];
     for (int i=0; i<12; i++){
         inputCopy[i]=input[i];
         monthsCopy[i]=months[i];
     }
-    mergeSort(inputCopy, monthsCopy, 0, 11);
+
+    mergeSort(inputCopy, monthsCopy, 0, 11); //calls mergeSort
 }
 
 int main(){
-    const char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    const char *months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}; //creates array with all months to use as parameters in functions
+
+    //reads values from input file and puts them into an array
     FILE *fptr;
     fptr = fopen("ex1input.txt", "r");
     float figures[12];
@@ -80,7 +127,10 @@ int main(){
         i++;
     }
     fclose(fptr);
+
+    //function calls
     monthlyReport(figures, months);
     salesSummary(figures, months);
     movingAverage(figures, months);
+    highestToLowest(figures, months);
 }
