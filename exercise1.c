@@ -113,6 +113,10 @@ void highestToLowest(float input[], const char *months[]){
     }
 
     mergeSort(inputCopy, monthsCopy, 0, 11); //calls mergeSort
+    
+    for (int i=0; i<12; i++){
+        printf("%s \t%.2f\n", monthsCopy[i], input[i]);
+    }
 }
 
 int main(){
