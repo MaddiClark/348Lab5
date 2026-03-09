@@ -8,18 +8,16 @@ Description: Reads input for two matrices and provides various functions to mani
 #include "exercise2.h"
 #define SIZE 5
 
-int addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE], int r1, int c1, int r2, int c2){
+void addMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE], int r1, int c1, int r2, int c2){
     if (r1==r2 && c1==c2){
         for (int i = 0; i<SIZE; i++){
             for (int j = 0; j<SIZE; j++){
                 m3[i][j] = m1[i][j]+m2[i][j];
             }
         }
-        return m3[SIZE][SIZE];
     }
     else{
         printf("Cannot add matrices of differing sizes\n");
-        return 0;
     }
 }
 
@@ -32,10 +30,11 @@ void printMatrix(int m[SIZE][SIZE]){
     }
 }
 
-int multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE], int c1, int r2){
+void multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE], int c1, int r2){
     if(c1==r2){
     for (int i=0; i<SIZE;i++){
         for (int j = 0; j<SIZE; j++){
+            m3[i][j]=0;
             for (int k=0; k<c1;k++){
                 m3[i][j]+=m1[i][k]*m2[k][j];
             }
@@ -46,7 +45,7 @@ int multiplyMatrices(int m1[SIZE][SIZE], int m2[SIZE][SIZE], int m3[SIZE][SIZE],
     }
 }
 
-int transposeMatrix(int m[SIZE][SIZE]){
+void transposeMatrix(int m[SIZE][SIZE]){
     int tempMatrix[SIZE][SIZE];
     for(int i=0; i<SIZE; i++){
         for(int j=0; j<SIZE; j++){
@@ -59,6 +58,7 @@ int transposeMatrix(int m[SIZE][SIZE]){
         }
     }
     printMatrix(m);
+    printf("\n");
 }
 
 int main(){
