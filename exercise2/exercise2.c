@@ -33,4 +33,5 @@ int main(){
     };
     int m3[SIZE][SIZE];
     addMatrices(m1, m2, m3);
+    printf("%d", m3);
 }
