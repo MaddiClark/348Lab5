@@ -6,6 +6,7 @@ Lab05
 Description: Takes in a file of sales figures and generates various reports
 */
 #include <stdio.h>
+#include "exercise1.h"
 
 void monthlyReport(float input[], const char *months[]){
     printf("\nMonthly Sales Report for 2024\n\n");
