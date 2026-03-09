@@ -54,12 +54,20 @@ void merge(float input[], const char *months[], int left, int right, int mid){
 
 }
 
-void mergeSort(float input[], const char *months[], int left, int right, int mid){
+void mergeSort(float input[], const char *months[], int left, int right){
 
 }
 
 void highestToLowest(float input[], const char *months[]){
-    
+    printf("\nSales Report (Highest to Lowest):\n");
+    printf("Month \tSales\n");
+    float inputCopy[12];
+    const char *monthsCopy[12];
+    for (int i=0; i<12; i++){
+        inputCopy[i]=input[i];
+        monthsCopy[i]=months[i];
+    }
+    mergeSort(inputCopy, monthsCopy, 0, 11);
 }
 
 int main(){
